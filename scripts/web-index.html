@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a1a2f">
+<title>MNN-Pocket-0.3B · 本地跑</title>
+<style>
+  :root{
+    --bg:#08131f; --bg2:#0d1e33; --card:rgba(255,255,255,.055);
+    --line:rgba(255,255,255,.10); --fg:#e8f2ff; --dim:#8ba6c4;
+    --accent:#3ad1ff; --accent2:#5b8cff; --warn:#ffb545;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html,body{margin:0;height:100%}
+  body{
+    background:
+      radial-gradient(1200px 700px at 15% -10%, #14446b 0%, transparent 60%),
+      radial-gradient(900px 600px at 95% 105%, #1b2a63 0%, transparent 55%),
+      linear-gradient(180deg,#08131f,#050b13 70%);
+    color:var(--fg);
+    font:15px/1.65 -apple-system,BlinkMacSystemFont,"SF Pro SC","PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",system-ui,sans-serif;
+    display:flex;flex-direction:column;height:100dvh;overflow:hidden;
+  }
+  header{
+    padding:calc(env(safe-area-inset-top) + 12px) 16px 10px;
+    display:flex;align-items:center;gap:10px;flex:none;
+    border-bottom:1px solid var(--line);backdrop-filter:blur(14px);
+    background:rgba(8,19,31,.72);
+  }
+  .logo{width:34px;height:34px;border-radius:11px;flex:none;position:relative;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    box-shadow:0 6px 20px -6px var(--accent);}
+  .logo:after{content:"M";position:absolute;inset:0;display:grid;place-items:center;
+    font-weight:800;font-size:17px;color:#04121e}
+  .hdr-txt{min-width:0;overflow:hidden}
+  .ttl{font-weight:650;letter-spacing:.2px;font-size:15px;white-space:nowrap}
+  .sub{font-size:11.5px;color:var(--dim);margin-top:-3px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .spacer{flex:1;min-width:6px}
+  .pill{font-size:11px;color:var(--dim);border:1px solid var(--line);border-radius:999px;
+    padding:4px 10px;white-space:nowrap;flex:none}
+  @media (max-width:400px){ .sub{display:none} }
+  .pill b{color:var(--accent);font-weight:600}
+
+  #log{flex:1;overflow-y:auto;padding:14px 14px 8px;display:flex;flex-direction:column;gap:12px;
+    -webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+  .msg{max-width:88%;padding:10px 13px;border-radius:16px;white-space:pre-wrap;word-break:break-word;
+    animation:in .22s cubic-bezier(.2,.8,.3,1)}
+  @keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .me{align-self:flex-end;background:linear-gradient(135deg,var(--accent2),#7b5bff);color:#fff;
+    border-bottom-right-radius:5px}
+  .ai{align-self:flex-start;background:var(--card);border:1px solid var(--line);
+    border-bottom-left-radius:5px}
+  .ai code{background:rgba(58,209,255,.13);padding:1px 5px;border-radius:5px;font-size:13px;
+    font-family:ui-monospace,SFMono-Regular,Consolas,monospace}
+  .ai pre{background:rgba(0,0,0,.42);border:1px solid var(--line);border-radius:10px;
+    padding:10px;overflow-x:auto;margin:8px 0}
+  .ai pre code{background:none;padding:0;font-size:12.5px;line-height:1.5}
+  .meta{font-size:10.5px;color:var(--dim);margin-top:6px;letter-spacing:.2px}
+  .typing:after{content:"▍";animation:bl 1s steps(2) infinite;color:var(--accent)}
+  @keyframes bl{50%{opacity:0}}
+
+  .quick{display:flex;gap:7px;overflow-x:auto;padding:2px 14px 10px;flex:none;
+    scrollbar-width:none}
+  .quick::-webkit-scrollbar{display:none}
+  .chip{flex:none;font-size:12.5px;color:var(--dim);border:1px solid var(--line);
+    background:rgba(255,255,255,.03);border-radius:999px;padding:7px 13px;cursor:pointer;
+    transition:.15s;white-space:nowrap}
+  .chip:active{background:rgba(58,209,255,.16);color:var(--fg);border-color:var(--accent)}
+
+  footer{flex:none;padding:10px 12px calc(env(safe-area-inset-bottom) + 12px);
+    border-top:1px solid var(--line);background:rgba(8,19,31,.82);backdrop-filter:blur(14px)}
+  .row{display:flex;gap:9px;align-items:flex-end}
+  textarea{flex:1;resize:none;max-height:132px;min-height:44px;padding:12px 14px;
+    border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.05);
+    color:var(--fg);font:inherit;font-size:16px;line-height:1.45;outline:none;
+    transition:border-color .15s}
+  textarea:focus{border-color:rgba(58,209,255,.55)}
+  textarea::placeholder{color:#5b7590}
+  button{flex:none;width:46px;height:46px;border-radius:14px;border:none;cursor:pointer;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));color:#03131f;
+    font-size:19px;font-weight:700;display:grid;place-items:center;
+    box-shadow:0 8px 22px -8px var(--accent);transition:.15s}
+  button:disabled{opacity:.4;box-shadow:none;cursor:default}
+  .hint{font-size:10.5px;color:#55708c;text-align:center;margin-top:7px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"></div>
+  <div class="hdr-txt">
+    <div class="ttl">MNN-Pocket-0.3B</div>
+    <div class="sub">3 亿参数 · 端侧小模型 · 本地推理</div>
+  </div>
+  <div class="spacer"></div>
+  <div class="pill" id="stat">就绪 <b id="tps"></b></div>
+</header>
+
+<div id="log"></div>
+
+<div class="quick" id="quick">
+  <div class="chip">用一句话介绍你自己</div>
+  <div class="chip">把「我的快递三天没到」分类成 投诉/咨询/闲聊</div>
+  <div class="chip">写个 Python 判断回文</div>
+  <div class="chip">从「我叫张三，住杭州」抽取 JSON</div>
+  <div class="chip">1 到 100 求和，给过程</div>
+</div>
+
+<footer>
+  <div class="row">
+    <textarea id="in" rows="1" placeholder="说点什么…（回车发送）" enterkeyhint="send"></textarea>
+    <button id="send" aria-label="发送">↑</button>
+  </div>
+  <div class="hint">模型跑在电脑上 · 手机只是遥控器 · 全程离线不走外网</div>
+</footer>
+
+<script>
+const logEl = document.getElementById('log');
+const inEl  = document.getElementById('in');
+const btn   = document.getElementById('send');
+const stat  = document.getElementById('stat');
+const tpsEl = document.getElementById('tps');
+let busy = false;
+
+const SYS = '你是一个运行在手机端的 3 亿参数小模型，回答要短、准、接地气。';
+
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+function md(s){
+  let h = esc(s);
+  h = h.replace(/```(\w*)\n?([\s\S]*?)```/g,(m,l,c)=>`<pre><code>${c.replace(/\n$/,'')}</code></pre>`);
+  h = h.replace(/`([^`\n]+)`/g,'<code>$1</code>');
+  h = h.replace(/\*\*([^*\n]+)\*\*/g,'<b>$1</b>');
+  return h;
+}
+function add(cls, text){
+  const d = document.createElement('div');
+  d.className = 'msg ' + cls;
+  d.innerHTML = md(text);
+  logEl.appendChild(d);
+  logEl.scrollTop = logEl.scrollHeight;
+  return d;
+}
+
+async function send(text){
+  if (busy || !text.trim()) return;
+  busy = true; btn.disabled = true;
+  inEl.value = ''; inEl.style.height = 'auto';
+  add('me', text);
+
+  const bubble = document.createElement('div');
+  bubble.className = 'msg ai typing';
+  bubble.textContent = '';
+  logEl.appendChild(bubble);
+  logEl.scrollTop = logEl.scrollHeight;
+
+  const t0 = performance.now();
+  let chars = 0, body = '';
+  try {
+    const r = await fetch('/api/chat', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        messages:[{role:'system',content:SYS},{role:'user',content:text}],
+        max_tokens: 512, temperature: 0.6, stream: true
+      })
+    });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const reader = r.body.getReader();
+    const dec = new TextDecoder();
+    let buf = '';
+    while (true) {
+      const {done, value} = await reader.read();
+      if (done) break;
+      buf += dec.decode(value, {stream:true});
+      const lines = buf.split('\n');
+      buf = lines.pop();
+      for (const line of lines) {
+        const s = line.trim();
+        if (!s.startsWith('data:')) continue;
+        const p = s.slice(5).trim();
+        if (p === '[DONE]') continue;
+        try {
+          const j = JSON.parse(p);
+          const t = j.choices?.[0]?.delta?.content || '';
+          if (t) {
+            body += t; chars += t.length;
+            bubble.classList.remove('typing');
+            bubble.innerHTML = md(body);
+            logEl.scrollTop = logEl.scrollHeight;
+          }
+        } catch(_) {}
+      }
+    }
+    const secs = (performance.now() - t0) / 1000;
+    bubble.classList.remove('typing');
+    if (!body) bubble.textContent = '（模型没说话，再试一次）';
+    const m = document.createElement('div');
+    m.className = 'meta';
+    m.textContent = `${chars} 字 · ${secs.toFixed(2)}s · 约 ${(chars/secs).toFixed(0)} 字/秒`;
+    bubble.appendChild(m);
+    tpsEl.textContent = (chars/secs).toFixed(0) + ' 字/秒';
+    logEl.scrollTop = logEl.scrollHeight;
+  } catch (e) {
+    bubble.classList.remove('typing');
+    bubble.textContent = '连接失败：' + e.message + '（确认电脑上的服务还开着）';
+  }
+  busy = false; btn.disabled = false;
+}
+
+btn.onclick = () => send(inEl.value);
+inEl.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send(inEl.value); }
+});
+inEl.addEventListener('input', () => {
+  inEl.style.height = 'auto';
+  inEl.style.height = Math.min(inEl.scrollHeight, 132) + 'px';
+});
+document.getElementById('quick').addEventListener('click', e => {
+  if (e.target.classList.contains('chip')) send(e.target.textContent);
+});
+
+(async () => {
+  add('ai', '我跑在电脑上，3 亿参数，183 MB。点下面任意一句试试，或者直接打字——看它有多快。');
+  try {
+    const r = await fetch('/api/health');
+    const j = await r.json();
+    if (!j.ok) stat.innerHTML = '<span style="color:var(--warn)">模型未就绪</span>';
+  } catch(_) { stat.innerHTML = '<span style="color:var(--warn)">后端离线</span>'; }
+})();
+</script>
+</body>
+</html>

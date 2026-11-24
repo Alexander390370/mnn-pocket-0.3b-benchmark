@@ -1,0 +1,150 @@
+{
+  "qq": [
+    {
+      "msg": "有没有人知道这个报错咋解决：TypeError: Cannot read pro",
+      "want": "求助",
+      "got": "举报",
+      "ok": false
+    },
+    {
+      "msg": "今晚八点开黑，缺一个打野",
+      "want": "组队",
+      "got": "举报",
+      "ok": false
+    },
+    {
+      "msg": "哈哈哈哈这个表情包太搞笑了",
+      "want": "闲聊",
+      "got": "闲聊",
+      "ok": true
+    },
+    {
+      "msg": "管理员在吗？这人一直在刷屏",
+      "want": "举报",
+      "got": "举报",
+      "ok": true
+    },
+    {
+      "msg": "【重金求子】加微信详聊",
+      "want": "广告",
+      "got": "举报",
+      "ok": false
+    },
+    {
+      "msg": "请问这个插件的配置文件放哪个目录",
+      "want": "求助",
+      "got": "请提供具体的配置文件内容，以便我准确判断其放哪个目录。",
+      "ok": false
+    },
+    {
+      "msg": "我明天可能来不了，抱歉",
+      "want": "通知",
+      "got": "求助",
+      "ok": false
+    },
+    {
+      "msg": "新版本更新了，快去升级",
+      "want": "通知",
+      "got": "举报",
+      "ok": false
+    },
+    {
+      "msg": "优惠券领取链接 https://x.co/a 限时三天",
+      "want": "广告",
+      "got": "举报",
+      "ok": false
+    },
+    {
+      "msg": "这道题谁会做？求解",
+      "want": "求助",
+      "got": "求助",
+      "ok": true
+    }
+  ],
+  "log": [
+    {
+      "log": "2026-11-24 08:12:01 ERROR db connect timeout after",
+      "want": "数据库",
+      "got": "数据库",
+      "ok": true
+    },
+    {
+      "log": "2026-11-24 09:30:22 WARN memory usage 87% exceeds ",
+      "want": "内存",
+      "got": "内存使用",
+      "ok": true
+    },
+    {
+      "log": "2026-11-24 10:01:10 INFO user login uid=10231 ip=1",
+      "want": "登录",
+      "got": "登录",
+      "ok": true
+    },
+    {
+      "log": "2026-11-24 11:45:33 ERROR 401 unauthorized token e",
+      "want": "认证",
+      "got": "数据库",
+      "ok": false
+    },
+    {
+      "log": "2026-11-24 12:00:00 CRIT disk /dev/sda1 98% full",
+      "want": "磁盘",
+      "got": "磁盘",
+      "ok": true
+    }
+  ],
+  "ticket": [
+    {
+      "t": "我买的鞋子尺码不对，想换大一码",
+      "want": "换货",
+      "got": "换货",
+      "ok": true
+    },
+    {
+      "t": "快递显示已签收但我没收到",
+      "want": "物流",
+      "got": "退款",
+      "ok": false
+    },
+    {
+      "t": "这个手机用了三天屏幕就花了，我要退款",
+      "want": "退款",
+      "got": "退款",
+      "ok": true
+    },
+    {
+      "t": "请问这个支持无线充电吗",
+      "want": "咨询",
+      "got": "退款",
+      "ok": false
+    },
+    {
+      "t": "你们客服态度太差了，我要投诉",
+      "want": "投诉",
+      "got": "投诉",
+      "ok": true
+    }
+  ],
+  "extra": [
+    {
+      "name": "QQ 消息 JSON",
+      "ok": "报错：连接超时，很急！",
+      "output": "{ \"type\": \"报错：连接超时，很急！\", \"text\": \"连接超时，很急！\", \"priority\": \"高\" }"
+    },
+    {
+      "name": "日志摘要",
+      "ok": true,
+      "output": "错误连接失败"
+    },
+    {
+      "name": "多字段抽取",
+      "ok": true,
+      "output": "{ \"order_id\": \"A12345\", \"amount\": \"89.9\", \"date\": \"2026-11-20\" }"
+    },
+    {
+      "name": "批量标签",
+      "ok": false,
+      "output": "[咨询, 咨询]"
+    }
+  ]
+}

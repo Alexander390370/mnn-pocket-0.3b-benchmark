@@ -1,0 +1,276 @@
+{
+  "Q4_1": {
+    "ctx": [
+      {
+        "targetTokens": 500,
+        "actualTokens": 565,
+        "ok": true,
+        "answer": "DELTA-9942"
+      },
+      {
+        "targetTokens": 2000,
+        "actualTokens": 2163,
+        "ok": true,
+        "answer": "delta-9942"
+      },
+      {
+        "targetTokens": 4000,
+        "actualTokens": 4288,
+        "ok": false,
+        "answer": "delight"
+      },
+      {
+        "targetTokens": 8000,
+        "actualTokens": 8538,
+        "ok": false,
+        "answer": "the fox. Frier. the fox. the fox. the . F. the fox. the fox. the fox. the fox. the ."
+      },
+      {
+        "targetTokens": 12000,
+        "actualTokens": 12788,
+        "ok": false,
+        "answer": "The last. the last. the last. the last. the last. the last. the last. the last. the last. the last."
+      },
+      {
+        "lang": "zh",
+        "targetTokens": 500,
+        "actualTokens": 315,
+        "ok": true,
+        "answer": "DELTA9942"
+      },
+      {
+        "lang": "zh",
+        "targetTokens": 2000,
+        "actualTokens": 1189,
+        "ok": true,
+        "answer": "DELTA9942"
+      },
+      {
+        "lang": "zh",
+        "targetTokens": 4000,
+        "actualTokens": 2339,
+        "ok": true,
+        "answer": "DELTA9942"
+      },
+      {
+        "lang": "zh",
+        "targetTokens": 8000,
+        "actualTokens": 4639,
+        "ok": false,
+        "answer": "这段内容是：[内容]"
+      }
+    ],
+    "speed": [
+      {
+        "decodeTps": 483,
+        "prefillTps": 1286.8,
+        "runs": [
+          {
+            "tps": 477.36969299161615,
+            "tokens": 97,
+            "promptTps": 2930.6829765545363
+          },
+          {
+            "tps": 488.00411620863235,
+            "tokens": 93,
+            "promptTps": 462.7487274409995
+          },
+          {
+            "tps": 483.55642465818937,
+            "tokens": 92,
+            "promptTps": 467.07146193367583
+          }
+        ]
+      }
+    ],
+    "concurrent": [
+      {
+        "n": 1,
+        "totalTokens": 43,
+        "wall": 0.11,
+        "effTps": 405.7
+      },
+      {
+        "n": 4,
+        "totalTokens": 209,
+        "wall": 0.2,
+        "effTps": 1066.3
+      },
+      {
+        "n": 8,
+        "totalTokens": 360,
+        "wall": 0.5,
+        "effTps": 715.7
+      }
+    ],
+    "realtask": [
+      {
+        "name": "写公告",
+        "ok": true,
+        "output": "周五晚8点系统维护，请留意。"
+      },
+      {
+        "name": "写邮件主题",
+        "ok": true,
+        "output": "请假三天，家里有事"
+      },
+      {
+        "name": "总结要点",
+        "ok": true,
+        "output": "- MNN 是一个轻量推理引擎，适用于手机和 PC 系统，支持广泛的应用部署。  \n- 已在淘宝等 30 多个 App 中实现实际应用，具备良好的兼容性和稳定性。  \n- 最新版本支持大模型的高效部署，助力模型在终端设备上快速、稳定运行。"
+      },
+      {
+        "name": "纠错反馈",
+        "ok": true,
+        "output": "你做得不错，只需优化细节。"
+      },
+      {
+        "name": "字段补全",
+        "ok": false,
+        "output": "{\"name\":\"张三\",\"age\":28,\"city\":\"__\"}"
+      },
+      {
+        "name": "分类+理由",
+        "ok": true,
+        "output": "类别：情绪宣泄  \n理由：句子“服务器又挂了，操”中的“挂了”表达的是服务器运行异常或故障的视觉或操作反馈，属于技术层面的描述，但“操”字带有情绪化、抱怨或情绪爆发的语气，反映出用户在面对技术问题时的焦虑、沮丧或情绪释放，因此更符合情绪宣泄的特征。"
+      }
+    ]
+  },
+  "Q8_0": {
+    "ctx": [
+      {
+        "targetTokens": 500,
+        "actualTokens": 565,
+        "ok": true,
+        "answer": "DELTA-9942"
+      },
+      {
+        "targetTokens": 2000,
+        "actualTokens": 2163,
+        "ok": false,
+        "answer": "secret access code"
+      },
+      {
+        "targetTokens": 4000,
+        "actualTokens": 4288,
+        "ok": true,
+        "answer": "secret access code is DELTA-9942"
+      },
+      {
+        "targetTokens": 8000,
+        "actualTokens": 8538,
+        "ok": false,
+        "answer": "the word. the word. the word. the word. the word. the word. the word. the word. the word. the word."
+      },
+      {
+        "targetTokens": 12000,
+        "actualTokens": 12788,
+        "ok": false,
+        "answer": "tale. tale. tale. tale. tale. tale. tale. tale. tale. tale. tale. tale. tale. tale. tale."
+      },
+      {
+        "lang": "zh",
+        "targetTokens": 500,
+        "actualTokens": 315,
+        "ok": true,
+        "answer": "DELTA9942"
+      },
+      {
+        "lang": "zh",
+        "targetTokens": 2000,
+        "actualTokens": 1189,
+        "ok": true,
+        "answer": "DELTA9942"
+      },
+      {
+        "lang": "zh",
+        "targetTokens": 4000,
+        "actualTokens": 2339,
+        "ok": true,
+        "answer": "DELTA9942"
+      },
+      {
+        "lang": "zh",
+        "targetTokens": 8000,
+        "actualTokens": 4639,
+        "ok": true,
+        "answer": "这段文字的代号是：DELTA9942。"
+      }
+    ],
+    "speed": [
+      {
+        "decodeTps": 372.1,
+        "prefillTps": 1167.5,
+        "runs": [
+          {
+            "tps": 363.11172221469104,
+            "tokens": 76,
+            "promptTps": 2825.552825552825
+          },
+          {
+            "tps": 377.02498905411323,
+            "tokens": 94,
+            "promptTps": 338.9830508474576
+          },
+          {
+            "tps": 376.1165961448049,
+            "tokens": 101,
+            "promptTps": 338.06626098715344
+          }
+        ]
+      }
+    ],
+    "concurrent": [
+      {
+        "n": 1,
+        "totalTokens": 31,
+        "wall": 0.09,
+        "effTps": 329.8
+      },
+      {
+        "n": 4,
+        "totalTokens": 182,
+        "wall": 0.22,
+        "effTps": 834.9
+      },
+      {
+        "n": 8,
+        "totalTokens": 348,
+        "wall": 0.53,
+        "effTps": 659.1
+      }
+    ],
+    "realtask": [
+      {
+        "name": "写公告",
+        "ok": true,
+        "output": "周五晚8点系统维护，请留意！"
+      },
+      {
+        "name": "写邮件主题",
+        "ok": true,
+        "output": "请假三天，家里事"
+      },
+      {
+        "name": "总结要点",
+        "ok": true,
+        "output": "- MNN 是一个轻量推理引擎，适用于手机和 PC 设备。  \n- 已在淘宝等 30 多个 App 中实现应用支持。  \n- 最新版本支持大模型的高效部署与部署。"
+      },
+      {
+        "name": "纠错反馈",
+        "ok": true,
+        "output": "你做得不错，思路清晰。"
+      },
+      {
+        "name": "字段补全",
+        "ok": false,
+        "output": "{\"name\":\"张三\",\"age\":28,\"city\":\"__\"}"
+      },
+      {
+        "name": "分类+理由",
+        "ok": true,
+        "output": "类别：情绪宣泄  \n理由：句子“服务器又挂了，操”中的“挂了”和“操”带有明显的负面情绪色彩，表达的是对服务器异常行为的不满和情绪反应，属于情绪宣泄的典型表现，而非技术问题。技术问题通常涉及系统运行、错误、故障等技术层面的描述，而此处是情绪化的表达，因此归类为情绪宣泄。"
+      }
+    ]
+  }
+}
