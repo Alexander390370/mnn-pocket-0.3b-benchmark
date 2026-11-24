@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="103" height="28" role="img" aria-label="raw data: JSON">
+  <title>raw data: JSON</title>
+  <linearGradient id="s" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <clipPath id="r"><rect width="103" height="28" rx="0" fill="#fff"/></clipPath>
+  <g clip-path="url(#r)">
+    <rect width="61" height="28" fill="#555"/>
+    <rect x="61" width="42" height="28" fill="#007ec6"/>
+    <rect width="103" height="28" fill="url(#s)"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">
+    <text x="31" y="18" fill="#fff" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">raw data</text>
+    <text x="82" y="18">JSON</text>
+  </g>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="73" height="28" role="img" aria-label="docs: 中文">
+  <title>docs: 中文</title>
+  <linearGradient id="s" x2="0" y2="100%">
+    <stop offset="0" stop-color="#bbb" stop-opacity=".1"/>
+    <stop offset="1" stop-opacity=".1"/>
+  </linearGradient>
+  <clipPath id="r"><rect width="73" height="28" rx="0" fill="#fff"/></clipPath>
+  <g clip-path="url(#r)">
+    <rect width="38" height="28" fill="#555"/>
+    <rect x="38" width="35" height="28" fill="#ff4d4f"/>
+    <rect width="73" height="28" fill="url(#s)"/>
+  </g>
+  <g fill="#fff" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">
+    <text x="19" y="18" fill="#fff" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="11">docs</text>
+    <text x="55" y="18">中文</text>
+  </g>
+</svg>

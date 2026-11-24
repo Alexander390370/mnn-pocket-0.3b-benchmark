@@ -8,28 +8,30 @@
 
 <br>
 
-![Benchmark](https://img.shields.io/badge/benchmark-291_calls-blueviolet?style=for-the-badge&logo=openai&logoColor=white)
-![Models](https://img.shields.io/badge/models_compared-4-ff69b4?style=for-the-badge&logo=huggingface&logoColor=white)
-![Speed](https://img.shields.io/badge/decode-483_tok%2Fs-brightgreen?style=for-the-badge&logo=speedtest&logoColor=white)
-![Verdict](https://img.shields.io/badge/verdict-%E6%89%8B%E4%B8%8D%E6%98%AF%E8%84%91-critical?style=for-the-badge)
+![Benchmark](assets/badges/benchmark.svg)
+![Models](assets/badges/models.svg)
+![Speed](assets/badges/speed.svg)
+![Verdict](assets/badges/verdict.svg)
 
 <br>
 
-![MNN](https://img.shields.io/badge/MNN-Pocket--0.3B-00A4EF?style=flat-square)
-![Params](https://img.shields.io/badge/params-300M-orange?style=flat-square)
-![Size](https://img.shields.io/badge/INT4-183_MB-success?style=flat-square)
-![License](https://img.shields.io/badge/license-Apache_2.0-blue?style=flat-square)
-![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20CUDA-0078D6?style=flat-square&logo=windows)
-![Engine](https://img.shields.io/badge/engine-llama.cpp-000000?style=flat-square&logo=llama&logoColor=white)
+![MNN](assets/badges/mnn.svg)
+![Params](assets/badges/params.svg)
+![Size](assets/badges/size.svg)
+![License](assets/badges/license.svg)
+![Platform](assets/badges/platform.svg)
+![Engine](assets/badges/engine.svg)
 
 <br>
 
-![Reproducible](https://img.shields.io/badge/reproducible-100%25-success?style=flat-square&logo=checkmarx&logoColor=white)
-![RawData](https://img.shields.io/badge/raw_data-JSON_included-informational?style=flat-square&logo=json&logoColor=white)
-![NoBullshit](https://img.shields.io/badge/no_bullshit-yes-red?style=flat-square)
-![Chinese](https://img.shields.io/badge/docs-%E4%B8%AD%E6%96%87-ff4d4f?style=flat-square)
+![Reproducible](assets/badges/reproducible.svg)
+![RawData](assets/badges/rawdata.svg)
+![NoBullshit](assets/badges/nobullshit.svg)
+![Chinese](assets/badges/chinese.svg)
 
 <br>
+
+> 💡 **徽章是本地 SVG**，不依赖 shields.io，国内网络无需代理也能秒开。
 
 [**🚀 快速结论**](#-三十秒看懂) · [**📊 横评榜单**](#-模型能力排名) · [**🔬 工程实录**](#-工程实录) · [**💀 翻车现场**](#-翻车现场精选) · [**📁 原始数据**](#-原始数据)
 
@@ -436,8 +438,8 @@ MODELS='[{"name":"MNN-0.3B","port":8471},{"name":"Qwen3-0.6B","port":8474,"noThi
 
 **测了 291 次调用，踩了 6 个坑，改了自己 3 个错误结论。**
 
-![Made with](https://img.shields.io/badge/made_with-obsessive_testing-red?style=flat-square)
-![Coffee](https://img.shields.io/badge/fuel-coffee-brown?style=flat-square&logo=buymeacoffee&logoColor=white)
+![Made with](assets/badges/madewith.svg)
+![Coffee](assets/badges/coffee.svg)
 
 <sub>测试时间 2026-11-24 · 所有数据可复现 · 欢迎提 issue 打脸</sub>
 
